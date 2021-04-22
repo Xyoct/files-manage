@@ -1,8 +1,8 @@
 const log4js = require("log4js");
 log4js.configure({
     appenders: {
-        access: { type: "dateFile", filename: "./server/logs/access/access.log","pattern": "-yyyy-MM-dd"},
-        errLog: { type: "dateFile", filename: "./server/logs/error/error.log","pattern": "-yyyy-MM-dd", categories: 'errLog'}
+        access: { type: "dateFile", filename: "./server/logs/access/access.log","pattern": "-yyyy-MM-dd.log"},
+        errLog: { type: "dateFile", filename: "./server/logs/error/error.log","pattern": "-yyyy-MM-dd.log", categories: 'errLog'}
     },
     categories: {
         default: { appenders: ["access"], level: "debug" },
