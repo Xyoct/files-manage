@@ -55,7 +55,10 @@ const callbackLogin = async ctx => {
     if (_user.password == password) {
         ctx.body = {
             code: 0,
-            data: _user.id,
+            data: {
+                id: _user.id,
+                account: account
+            },
             msg: '登录成功'
         }
     } else {
@@ -70,12 +73,12 @@ const callbackLogin = async ctx => {
 module.exports = [
     {
         method: 'GET',
-        path: '/signup',
+        path: '/api/signup',
         cbFnc: callbackHome
     },
     {
         method: 'POST',
-        path: '/login',
+        path: '/api/login',
         cbFnc: callbackLogin
     }
 ]
