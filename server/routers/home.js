@@ -56,7 +56,7 @@ const callbackLogin = async ctx => {
         ctx.body = {
             code: 0,
             data: {
-                id: _user.id,
+                token: `${_user.id}|${account}`,
                 account: account
             },
             msg: '登录成功'
