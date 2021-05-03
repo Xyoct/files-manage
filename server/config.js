@@ -1,6 +1,6 @@
 module.exports = {
     port: 3050,
-    dbUrl: "mongodb://localhost:27017/mywebsite",
+    dbUrl: "mongodb://localhost:27017/filemange",
     corsConfig: {
         origin: "*",
         exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
