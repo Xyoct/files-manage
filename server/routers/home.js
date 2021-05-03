@@ -1,5 +1,5 @@
 
-const User = require('../model/userModel')
+const User = require('../model/models').UserModel
 
 const callbackHome = async ctx => {
     let account = ctx.query.account
@@ -17,14 +17,14 @@ const callbackHome = async ctx => {
                     resove({
                         code: 0,
                         data: {id: res.id},
-                        msg: '注册成功'
+                        msg: '注册成功！'
                     })
                 }) 
             } else {
                 resove({
                     code: -1,
                     data: -1,
-                    msg: '用户名已存在'
+                    msg: '用户名已存在！'
                 })
             }
         })
@@ -39,7 +39,7 @@ const callbackLogin = async ctx => {
         ctx.body = {
             code: -1,
             data: -1,
-            msg: '账号密码不能为空'
+            msg: '账号密码不能为空！'
         }
         return
     }
@@ -48,7 +48,7 @@ const callbackLogin = async ctx => {
         ctx.body = {
             code: -1,
             data: -1,
-            msg: '用户不存在'
+            msg: '用户不存在！'
         }
         return
     }
@@ -59,13 +59,13 @@ const callbackLogin = async ctx => {
                 token: `${_user.id}|${account}`,
                 account: account
             },
-            msg: '登录成功'
+            msg: '登录成功！'
         }
     } else {
         ctx.body = {
             code: -1,
             data: -1,
-            msg: '密码错误'
+            msg: '密码错误！'
         }
     }
 }

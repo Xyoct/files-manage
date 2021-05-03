@@ -6,6 +6,8 @@ const cors = require('koa2-cors')
 const router = require('koa-router')()
 const bodyParser = require('koa-bodyparser')
 
+const koaBody = require('koa-body');
+
 const app = new Koa()
 const { port, dbUrl, corsConfig} = require('./config')
 const viewsH = require('../views/index')
@@ -28,13 +30,20 @@ app.use(async (ctx, next) => {
     }
 })
 
-app.use(bodyParser())
+app.use(cors(corsConfig))
+app.use(koaBody(
+    {
+        multipart: true,
+        formidable: {
+            maxFileSize: 200*1024*1024    // 设置上传文件大小最大限制，默认2M
+        }
+    }
+))
 
 app.use(static(path.join(__dirname, '../public')))
 app.use(views(path.join(__dirname, '../views'), viewsH))
 
 app.use(controller())
-app.use(cors(corsConfig))
 app.use(router.routes())
 
 app.listen(port)

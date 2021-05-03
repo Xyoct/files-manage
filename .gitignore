@@ -10,6 +10,7 @@ yarn-error.log*
 selenium-debug.log
 
 server/logs/
+server/files/
 
 # Editor directories and files
 .idea

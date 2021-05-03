@@ -24,8 +24,12 @@ function addMapping(router, route) {
             router.get(route.path, route.cbFnc)
             console.log(`  router mapping: ${route.method} ${route.path}`)
             break;
-            case 'POST':
+        case 'POST':
             router.post(route.path, route.cbFnc)
+            console.log(`  router mapping: ${route.method} ${route.path}`)
+            break;
+        case 'DELETE':
+            router.delete(route.path, route.cbFnc)
             console.log(`  router mapping: ${route.method} ${route.path}`)
             break;
     }

@@ -6,7 +6,7 @@ module.exports = {
         exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
         maxAge: 5,
         credentials: true,
-        allowMethods: ['GET', 'POST', 'DELETE'],
+        allowMethods: ['GET', 'PUT', 'POST', 'DELETE', 'HEAD', 'OPTIONS'],
         allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
       }
 }
