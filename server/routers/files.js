@@ -35,7 +35,13 @@ const callbackFilesDownload = async ctx => {
 const callbackFilesUpload = async ctx => {
     // 上传单个文件
     const file = ctx.request.files.file; // 获取上传文件
-
+    if (!file) {
+        return ctx.body = {
+            code: -1,
+            data: -1,
+            msg: '未获取到文件！'
+        }
+    }
     let token = ctx.headers.token || ''
     if (!token) {
         return ctx.body = {
