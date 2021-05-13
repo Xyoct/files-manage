@@ -1,7 +1,7 @@
 {
     "apps" : [{
        "name" : "file-manage",
-       "script" : "server/app.js"
+       "script" : "bin/www.js"
     }],
     "deploy" : {
       // "production" is the environment name
