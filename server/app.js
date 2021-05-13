@@ -46,5 +46,7 @@ app.use(views(path.join(__dirname, '../views'), viewsH))
 app.use(controller())
 app.use(router.routes())
 
-
-module.exports = app
+app.listen(port)
+console.log(`.......................`)
+console.log(`app listen at ${port}`)
+console.log(``)
