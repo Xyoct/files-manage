@@ -3,7 +3,8 @@ const viewsH = {
     extension: 'hbs',
     options: {
         partials: {
-            header: 'components/header',
+            header: 'partials/header',
+            footer: 'partials/footer',
         }
     }
 }

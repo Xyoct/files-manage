@@ -4,7 +4,6 @@ const static = require('koa-static')
 const views = require('koa-views')
 const cors = require('koa2-cors')
 const router = require('koa-router')()
-const bodyParser = require('koa-bodyparser')
 
 const koaBody = require('koa-body');
 
