@@ -4,7 +4,7 @@
   "description": "文件上传下载",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./server/app.js",
+    "dev": "cross-env NODE_ENV=production nodemon ./server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "徐月",
@@ -19,5 +19,8 @@
     "koa2-cors": "^2.0.6",
     "log4js": "^6.3.0",
     "mongoose": "^5.4.19"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }

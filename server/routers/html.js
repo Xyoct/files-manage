@@ -1,6 +1,7 @@
 const staticPath = process.env.NODE_ENV === "production"? 'http://www.bestlifebestyue.com/file-manage': ''
 
 const callbackIndex = async ctx => {    
+    console.log(staticPath)
     await ctx.render('home', {
         title: "website",
         name: "World",

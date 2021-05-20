@@ -12,7 +12,7 @@
         "repo" : "git@github.com:Xyoct/files-manage.git",
         "path" : "/home/github/file-manage",
         "ssh_options": "StrictHostKeyChecking=no",
-        "post-deploy" : "git pull && npm install && pm2 startOrRestart ecosystem.json --env production"
+        "post-deploy" : "git pull && npm install && cross-env NODE_ENV=production pm2 startOrRestart ecosystem.json"
        }
     }
  }
