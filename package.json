@@ -4,7 +4,7 @@
   "description": "文件上传下载",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=production nodemon ./server/app.js",
+    "dev": "nodemon ./server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "徐月",
