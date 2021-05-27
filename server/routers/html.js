@@ -5,10 +5,10 @@ const callbackIndex = async ctx => {
         title: "website",
         name: "World",
         user: 'sessionUser',
-        css: ['/css/test.css'].map( e => {
+        css: ['/css/index.css'].map( e => {
             return staticPath + e
         }),
-        js: ['/js/test.js'].map( e => {
+        js: [].map( e => {
             return staticPath + e
         })
         

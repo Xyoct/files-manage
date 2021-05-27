@@ -4,18 +4,25 @@
 <head>
     <link rel="shortcut icon" href="http://www.bestlifebestyue.com/static/favicon.ico" type="image/x-icon">
     <title>{{title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     {{> cssresource}}
 </head>
 
 <body>
-    {{!-- 导航头部 --}} 
-    {{> header }}
-    <div class="name">home</div>
-    {{> footer }}
+    <div class="container">
+        <aside class="xy_aside">
+            <div class="xy_aside_content">
+                <div class="xy_logo_image"></div>
+            </div>
+        </aside>
+    </div>
 
     <script src="http://www.bestlifebestyue.com/file-manage/js/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
     {{> jsresource}}
+    <script>
+        console.log($('.row'))
+    </script>
 </html>
