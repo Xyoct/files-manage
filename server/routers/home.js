@@ -1,31 +1,30 @@
 
 const User = require('../model/models').UserModel
+const  { ResBodySuccess, ResBodyFail } = require('../util')
 
-const callbackHome = async ctx => {
+const callbackSignup = async ctx => {
     let account = ctx.query.account
     let password = ctx.query.password
     let _user = new User({
         account: account,
         password: password
     })
+    if (!account) {
+        return ctx.body = new ResBodyFail('账号不能为空！')
+    }
+    if (!password) {
+        return ctx.body = new ResBodyFail('密码不能为空！')
+    }
     let userSave = function () {
         return new Promise(async (resove, reject) => {
             if (!await User.findOne({ account: account}).exec()) {
                 _user.save(function (err, res) {
                     if (err) return reject(err);
                     // saved!
-                    resove({
-                        code: 0,
-                        data: {id: res.id},
-                        msg: '注册成功！'
-                    })
+                    resove(new ResBodySuccess('注册成功！', {id: res.id}))
                 }) 
             } else {
-                resove({
-                    code: -1,
-                    data: -1,
-                    msg: '用户名已存在！'
-                })
+                resove(new ResBodyFail('用户名已存在！'))
             }
         })
     }
@@ -36,37 +35,19 @@ const callbackLogin = async ctx => {
     let account = ctx.request.body.account || ''
     let password = ctx.request.body.password || ''
     if (!account || !password) {
-        ctx.body = {
-            code: -1,
-            data: -1,
-            msg: '账号密码不能为空！'
-        }
-        return
+        return ctx.body = new ResBodyFail('账号密码不能为空！')
     }
     let _user = await User.findOne({ account: account}).exec()
     if (!_user) {
-        ctx.body = {
-            code: -1,
-            data: -1,
-            msg: '用户不存在！'
-        }
-        return
+        return ctx.body = new ResBodyFail('用户不存在！')
     }
     if (_user.password == password) {
-        ctx.body = {
-            code: 0,
-            data: {
-                token: `${_user.id}|${account}`,
-                account: account
-            },
-            msg: '登录成功！'
-        }
+        return new ResBodySuccess('登录成功！', {
+            token: `${_user.id}|${account}`,
+            account: account
+        })
     } else {
-        ctx.body = {
-            code: -1,
-            data: -1,
-            msg: '密码错误！'
-        }
+        return ctx.body = new ResBodyFail('密码错误！')
     }
 }
 
@@ -74,7 +55,7 @@ module.exports = [
     {
         method: 'GET',
         path: '/api/signup',
-        cbFnc: callbackHome
+        cbFnc: callbackSignup
     },
     {
         method: 'POST',

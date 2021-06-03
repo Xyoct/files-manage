@@ -6,6 +6,7 @@ $aside-width: 400px;
 html, body {
     width: 100%;
     height: 100%;
+    background: #69C;
 }
 
 .container {
@@ -23,12 +24,12 @@ html, body {
         height: 100%;
         .xy_aside_content {
             position: absolute;
-            top: 50%;
+            top: 0;
             left: 50%;
             width: 300px;
-            height: 700px;
-            background: #f2f2f2;
-            transform: translate(-50%, -50%);
+            height: 100%;
+            background: #2279BD;
+            transform: translateX(-50%);
             .xy_logo_image {
                 margin: 0 auto;
                 margin-top: 20px;
@@ -36,6 +37,35 @@ html, body {
                 height: 150px;
                 background: #ccc;
                 border-radius: 20px 20px;
+            }
+            .xy_menu {
+                margin: 0 auto;
+                margin-top: 20px;
+                width: 100%;
+                overflow: hidden;
+                $menu-item-height: 60px;
+                .menu_item {
+                    width: 100%;
+                    height: $menu-item-height;
+                    color: #fff;
+                    border-top: 1px solid #ccc;
+                    &:last-child {
+                        border-bottom: 1px solid #ccc;
+                    }
+                    &:hover {
+                        cursor: pointer;
+                        background: #fff;
+                        p {
+                            color: #2279BD;
+                        }
+                    }
+                    p {
+                        width: 100%;
+                        height: $menu-item-height;
+                        text-align: center;
+                        line-height: $menu-item-height;
+                    }
+                }
             }
         }
     }

@@ -4,6 +4,8 @@ var contentDisposition = require('content-disposition')
 
 const FileInfo = require('../model/models').FileInfoModel
 
+const  { ResBodySuccess, ResBodyFail } = require('../util')
+
 const callbackFilesDownload = async ctx => {
     let fileName = ctx.query.fileName
     let filePath = ctx.query.filePath
@@ -21,13 +23,9 @@ const callbackFilesDownload = async ctx => {
     if (await _bodyFnc()) {
         ctx.set('Content-type', 'application/*')
         ctx.set('Content-Disposition', contentDisposition(__path))
-        ctx.body = await _bodyFnc()
+        return ctx.body = await _bodyFnc()
     } else {
-        ctx.body = {
-            code: -1,
-            msg: '文件不存在',
-            data: -1
-        };
+        return ctx.body = new ResBodyFail('文件不存在')
     }
 
 }
@@ -36,19 +34,11 @@ const callbackFilesUpload = async ctx => {
     // 上传单个文件
     const file = ctx.request.files.file; // 获取上传文件
     if (!file) {
-        return ctx.body = {
-            code: -1,
-            data: -1,
-            msg: '未获取到文件！'
-        }
+        return ctx.body = new ResBodyFail('未获取到文件！')
     }
     let token = ctx.headers.token || ''
     if (!token) {
-        return ctx.body = {
-            code: -1,
-            data: -1,
-            msg: '上传文件请先登录！'
-        }
+        return ctx.body = new ResBodyFail('上传文件请先登录！')
     } else {
        let _userId =  token.split('|')[0]
        let _userName =  token.split('|')[1]
@@ -60,11 +50,7 @@ const callbackFilesUpload = async ctx => {
         }
         let filePath = _path + `/${file.name}`;
         if (fs.existsSync(filePath)) {
-            return ctx.body = {
-                code: -1,
-                data: -1,
-                msg: '文件已存在！'
-            };
+            return ctx.body = new ResBodyFail('文件已存在！')
         }
         let _fileInfo = new FileInfo({
             uploadUserName: _userName,
@@ -91,24 +77,12 @@ const callbackFilesUpload = async ctx => {
                 // 可读流通过管道写入可写流
                 reader.pipe(upStream);
         
-                return ctx.body = {
-                    code: 0,
-                    data: 0,
-                    msg: '上传成功！'
-                };
+                return ctx.body = new ResBodySuccess('上传成功！')
             } catch (err) {
-                return ctx.body = {
-                    code: -1,
-                    data: -1,
-                    msg: '文件存储失败！'
-                };
+                return ctx.body = new ResBodyFail('文件存储失败！')
             }
         } else {
-            return ctx.body = {
-                code: -1,
-                data: -1,
-                msg: '入库失败！'
-            };
+            return ctx.body = new ResBodyFail('入库失败！')
         }
     }
 }
@@ -127,14 +101,10 @@ const callbackFileList = async ctx => {
     let pageSize = ctx.request.query.pageSize*1 || 15
     let pageNum = ctx.request.query.pageNum*1 || 1
     let _result = result.slice((pageNum - 1)*pageSize, pageSize*pageNum)
-    ctx.body = {
-        code: 0,
-        data: {
-            total: result.length,
-            fileList: _result
-        },
-        msg: '成功！'
-    };
+    return ctx.body = new ResBodySuccess('成功！', {
+        total: result.length,
+        fileList: _result
+    })
 }
 
 
@@ -159,24 +129,12 @@ const callbackFileDel = async ctx => {
         let _path = path.join(__dirname, `../${result.dir}/${result.fileName}`)
         fs.unlinkSync(_path)
         if (_result) {
-            ctx.body = {
-                code: 0,
-                data: 0,
-                msg: '删除成功！'
-            };
+            return ctx.body = new ResBodySuccess('删除成功！')
         } else {
-            ctx.body = {
-                code: -1,
-                data: -1,
-                msg: '删除失败！'
-            };
+            return  ctx.body = new ResBodyFail('删除失败！')
         }
     } else {
-        ctx.body = {
-            code: -1,
-            data: -1,
-            msg: '不能删除非自己上传的文件'
-        };
+        return ctx.body = new ResBodyFail('不能删除非自己上传的文件')
     }
 }
 

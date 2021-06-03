@@ -19,9 +19,9 @@ function formatResponseLogText(ctx) {
     return _str
 }
 
-function ResBodySuccess(data) {
+function ResBodySuccess(msg, data) {
     this.code = '000000'
-    this.msg = '成功'
+    this.msg = msg || '成功'
     this.data = data || 1
 }
 function ResBodyFail(err) {
