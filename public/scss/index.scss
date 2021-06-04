@@ -48,13 +48,18 @@ html, body {
                     width: 100%;
                     height: $menu-item-height;
                     color: #fff;
-                    border-top: 1px solid #ccc;
+                    border-top: 2px solid #69C;
+                    transition: all 0.5s;
                     &:last-child {
-                        border-bottom: 1px solid #ccc;
+                        border-bottom: 1px solid #69C;
                     }
                     &:hover {
                         cursor: pointer;
                         background: #fff;
+                        border-top: 1px solid #fff;
+                        &:last-child {
+                            border-bottom: 1px solid #fff;
+                        }
                         p {
                             color: #2279BD;
                         }
