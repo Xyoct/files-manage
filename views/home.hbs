@@ -17,20 +17,41 @@
                 <div class="xy_logo_image">
                     <img src="http://www.bestlifebestyue.com/file-manage/img/logo-image.jpg" alt="">
                 </div>
-                <div class=""></div>
+                <div class="user_title">
+                    <p class="user_title_big">{{name}}</p>
+                    <p class="user_title_desc">{{selfDesc}}</p>
+                </div>
                 <div class="xy_menu">
-                    <div class="menu_item">
-                        <p>自我介绍</p>
-                    </div>
-                    <div class="menu_item">
-                        <p>作品集合</p>
-                    </div>
-                    <div class="menu_item">
-                        <p>联系一下</p>
-                    </div>
+                    {{#each menus}}
+                        <div class="menu_item" id="{{this.id}}">
+                            <p>{{this.name}}</p>
+                        </div>
+                    {{/each}}
+                </div>
+                <div class="icons_wrapper">
+                    {{#each icons}}
+                        <i class="iconfont icon-{{this}}"></i>
+                    {{/each}}
+                </div>
+                <div class="menu_footer">
+                    <p>浙ICP备17024525号</p>
                 </div>
             </div>
         </aside>
+        <div class="xy_content">
+            <div class="self_wrapper">
+                <h3>自我介绍</h3>
+                <article>
+                    自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍
+                </article>
+            </div>
+            <div class="gallery_wrapper">
+                <div class="gallery_content">
+                    
+                </div>
+            </div>
+            <div class="contact_wrapper"></div>
+        </div>
     </div>
 
     <script src="http://www.bestlifebestyue.com/file-manage/js/jquery.min.js"></script>

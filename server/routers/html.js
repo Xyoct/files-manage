@@ -2,10 +2,17 @@ const staticPath = process.env.NODE_ENV === "production"? 'http://www.bestlifebe
 
 const callbackIndex = async ctx => {    
     await ctx.render('home', {
-        title: "website",
-        name: "World",
+        title: "南山小居",
+        name: "望舒",
+        selfDesc: '小前端一枚',
+        menus: [
+            {id: 'self',name: '自我介绍'},
+            {id: 'gallery',name: '作品集合'},
+            {id: 'contact',name: '联系一下'}
+        ],
+        icons: ['wechat', 'qq', 'mail'],
         user: 'sessionUser',
-        css: ['/css/index.css'].map( e => {
+        css: ['/css/iconfont.css', '/css/index.css'].map( e => {
             return staticPath + e
         }),
         js: [].map( e => {
