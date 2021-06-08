@@ -23,8 +23,8 @@
                 </div>
                 <div class="xy_menu">
                     {{#each menus}}
-                        <div class="menu_item" id="{{this.id}}">
-                            <p>{{this.name}}</p>
+                        <div class="menu_item">
+                            <a href="{{this._id}}">{{this.name}}</a>
                         </div>
                     {{/each}}
                 </div>
@@ -39,18 +39,42 @@
             </div>
         </aside>
         <div class="xy_content">
-            <div class="self_wrapper">
-                <h3>自我介绍</h3>
+            <div class="self_wrapper content_item">
+                <h3 class="h3" id="self">自我介绍</h3>
                 <article>
                     自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍自我介绍
                 </article>
             </div>
-            <div class="gallery_wrapper">
+            <div class="gallery_wrapper content_item">
                 <div class="gallery_content">
-                    
+                    <h3 class="h3" id="gallery">作品集合</h3>
+                    <div class="gallery_content_wrapper">
+                        {{#each galleryImgList}}
+                            <div class="gallery_item">
+                                <img src="{{this.imgUrl}}" alt="图片加载失败……" srcset="">
+                                <div class="gallery_item_content">
+                                    <h3>{{this.title}}</h3>
+                                    <p>{{this.desc}}</p>
+                                    <a href="{{this.url}}" target="_blank" rel="noopener noreferrer">点击前往 >>></a>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
                 </div>
             </div>
-            <div class="contact_wrapper"></div>
+            <div class="contact_wrapper content_item">
+                <h3 class="h3" id="contact">联系一下</h3>
+                <p>desc</p>
+                <div class="contact_content">
+                    <input type="text" class="name" placeholder="想让我怎么称呼你……">
+                    <input type="text" class="email" placeholder="留下联系方式……">
+                    <input type="text" class="subject" placeholder="标题……">
+                    <textarea name="" id="" cols="30" rows="10" placeholder="想说的话……"></textarea>
+                    <div class="btn_wrapper">
+                        <button>call 我一下</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -58,6 +82,16 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
     {{> jsresource}}
     <script>
-        console.log($('.row'))
+        $('.gallery_item').click(function() {
+            let _a = $(this).find('a')
+            let url = $(_a).attr("href") || '/'
+            window.location.href = url
+        })
+        $('.menu_item').click(function() {
+            let _id = $(this).attr('id')
+        })
+        $('.xy_logo_image').click(function() {
+            window.location.href = '/'
+        })
     </script>
 </html>
