@@ -13,15 +13,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-close:before {
+    content: "\e6c9";
+}
+  
 .icon-mail:before {
-  content: "\e645";
+    content: "\e645";
 }
 
 .icon-wechat:before {
-  content: "\e715";
+    content: "\e715";
 }
 
 .icon-qq:before {
-  content: "\e614";
+    content: "\e614";
 }
 

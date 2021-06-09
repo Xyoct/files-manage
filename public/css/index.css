@@ -49,4 +49,10 @@ html, body { width: 100%; height: 100%; background: #69C; }
 .container .xy_content .content_item .contact_content .btn_wrapper { width: 100%; overflow: hidden; text-align: left; }
 .container .xy_content .content_item .contact_content .btn_wrapper button { margin-top: 20px; color: #69C; background-color: #fff; border: none; outline: none; padding: 5px 30px; border-radius: 5px 5px; }
 
+.shadow_wrapper { position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: none; }
+.shadow_wrapper .shadow { position: fixed; width: 100%; height: 100%; background: #fff; opacity: 0.4; }
+.shadow_wrapper .shadow_wrapper_content { position: absolute; top: 50%; left: 50%; width: 200px; overflow: hidden; transform: translate(-50%, -50%); background: #fff; border-radius: 10px 10px; padding: 20px; }
+.shadow_wrapper .shadow_wrapper_content i { position: absolute; right: 10px; top: 0; color: #000; width: 10px; height: 10px; font-size: 18px; }
+.shadow_wrapper .shadow_wrapper_content i:hover { cursor: pointer; }
+
 /*# sourceMappingURL=index.css.map */

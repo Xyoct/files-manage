@@ -84,6 +84,15 @@
             </div>
         </div>
     </div>
+    <div class="shadow_wrapper">
+        <div class="shadow"></div>
+        <div class="shadow_wrapper_content">
+            <div class="shadow_wrapper_text">
+                nideasdfadf
+            </div>
+            <i class="iconfont icon-close"></i>
+        </div>
+    </div>
 
     <script src="http://www.bestlifebestyue.com/file-manage/js/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
@@ -99,6 +108,16 @@
         })
         $('.xy_logo_image').click(function() {
             window.location.href = '/'
+        })
+        $('.btn_wrapper button').click(function() {
+            $('.shadow_wrapper').fadeIn(100)
+            var _t = setTimeout(function() {
+                clearTimeout(_t)
+                $('.shadow_wrapper').fadeOut(100)
+            }, 2000)
+            $('.icon-close').click(function() {
+                $('.shadow_wrapper').fadeOut(100)
+            })
         })
     </script>
 </html>
