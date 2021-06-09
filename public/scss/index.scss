@@ -128,12 +128,21 @@ html, body {
         .content_item {
             width: 100%;
             overflow: hidden;
+            &:hover {
+                .line {
+                    width: 200px;
+                }
+            }
             h3.h3 {
-                font-size: 22px;
+                font-size: 18px;
                 width: 100%;
-                border-bottom: 1px solid #fff;
-                padding: 20px 0;
-                padding-bottom: 10px;
+                padding: 5px 0;
+            }
+            .line {
+                width: 100px;
+                height: 1px;
+                background-color: #fff;
+                transition: width 1s;
             }
             article {
                 margin: 20px 0;
@@ -174,12 +183,13 @@ html, body {
                         height: 100%;
                         padding: 15px;
                         h3 {
-                            font-size: 20px;
+                            font-size: 16px;
                         }
                         p {
                             margin: 20px 0;
                         }
                         a {
+                            font-size: 12px;
                             color: #fff;
                         }
                     }

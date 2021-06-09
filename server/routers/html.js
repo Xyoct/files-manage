@@ -20,7 +20,7 @@ const callbackIndex = async ctx => {
             },
             {
                 title: '作品二',
-                desc: '/img/gallery/2.jpeg',
+                desc: '你的',
                 imgUrl: '/img/gallery/2.jpeg',
                 url: 'http://www.baidu.com',
             },
