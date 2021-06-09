@@ -129,11 +129,15 @@ html, body {
             width: 100%;
             overflow: hidden;
             h3.h3 {
-                font-size: 30px;
+                font-size: 22px;
                 width: 100%;
-                border-bottom: 2px solid #fff;
+                border-bottom: 1px solid #fff;
                 padding: 20px 0;
-                padding-bottom: 30px;
+                padding-bottom: 10px;
+            }
+            article {
+                margin: 20px 0;
+                padding-left: 40px;
             }
             .gallery_content_wrapper {
                 display: flex;
@@ -170,7 +174,7 @@ html, body {
                         height: 100%;
                         padding: 15px;
                         h3 {
-                            font-size: 24px;
+                            font-size: 20px;
                         }
                         p {
                             margin: 20px 0;
@@ -241,7 +245,7 @@ html, body {
                         background-color: #fff;
                         border: none;
                         outline: none;
-                        padding: 10px 30px;
+                        padding: 5px 30px;
                         border-radius: 5px 5px;
                     }
                 }
