@@ -71,12 +71,12 @@
             <div class="contact_wrapper content_item">
                 <h3 class="h3" id="contact">联系一下</h3>
                 <div class="line"></div>
-                <p>desc</p>
+                <p>有什么想对我说的，可以填写下面的信息发送给我……</p>
                 <div class="contact_content">
                     <input type="text" class="name" placeholder="想让我怎么称呼你……">
                     <input type="text" class="email" placeholder="留下联系方式……">
                     <input type="text" class="subject" placeholder="标题……">
-                    <textarea name="" id="" cols="30" rows="10" placeholder="想说的话……"></textarea>
+                    <textarea class="" name="" id="" cols="30" rows="10" placeholder="想说的话……"></textarea>
                     <div class="btn_wrapper">
                         <button>发  送</button>
                     </div>
@@ -88,7 +88,7 @@
         <div class="shadow"></div>
         <div class="shadow_wrapper_content">
             <div class="shadow_wrapper_text">
-                nideasdfadf
+                出现了个弹窗……
             </div>
             <i class="iconfont icon-close"></i>
         </div>
@@ -103,13 +103,23 @@
             let url = $(_a).attr("href") || '/'
             window.location.href = url
         })
-        $('.menu_item').click(function() {
-            let _id = $(this).attr('id')
-        })
         $('.xy_logo_image').click(function() {
             window.location.href = '/'
         })
         $('.btn_wrapper button').click(function() {
+            if ($('.contact_content input.name').val() && $('.contact_content input.email').val() && $('.contact_content input.subject').val() && $('.contact_content textarea').val()) {
+                $('.shadow_wrapper_text').text('发送成功！')
+            } else {
+                if (!$('.contact_content input.name').val()) {
+                    $('.shadow_wrapper_text').text('想让我怎么称呼你……')
+                } else if (!$('.contact_content input.email').val()) {
+                    $('.shadow_wrapper_text').text('留下联系方式……')
+                } else if (!$('.contact_content input.subject').val()) {
+                    $('.shadow_wrapper_text').text('标题……')
+                } else if (!$('.contact_content textarea').val()) {
+                    $('.shadow_wrapper_text').text('想说的话……')
+                }
+            }
             $('.shadow_wrapper').fadeIn(100)
             var _t = setTimeout(function() {
                 clearTimeout(_t)

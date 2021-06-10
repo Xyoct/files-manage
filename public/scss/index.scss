@@ -280,13 +280,13 @@ html, body {
     }
     .shadow_wrapper_content {
         position: absolute;
-        top: 50%;
+        top: 30%;
         left: 50%;
         width: 200px;
         overflow: hidden;
         transform: translate(-50%, -50%);
         background: #fff;
-        border-radius: 10px 10px;
+        border-radius: 5px 5px;
         padding: 20px;
         i {
             position: absolute;
